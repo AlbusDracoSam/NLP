@@ -72,6 +72,53 @@
   NLTK , WordNetLemmatizer
   
   Check the implementation [Lemmatization note book](https://github.com/AlbusDracoSam/NLP/blob/main/Lemmatization.ipynb)
+  
+ ***
+
+### Bag of Words
+
+  Suppose we have 3 sentences :
+  
+  Sentence I   :  good boy
+  
+  Sentence II  : good girl
+  
+  Sentence III : boy girl
+  
+  Considering the above 3 sentences we count the frequency of each of the word and then converting those into a vector.
+  
+
+| word       |   frequency  |                        
+| ------------- | ------------- |                    
+| good      | 2 |                    
+| boy       | 2 |                                   
+| girl      | 2 |     
+
+**Converting to Vector**
+ 
+
+|     | good | boy | girl |
+| --- | ---- | --- | ---- | 
+| Sentence I | 1 | 1 | 0 |
+| Sentence II | 1 | 0 | 1 |
+| Sentence III | 0 | 1 | 1 |
+
+**Libraries used**
+
+  NLTK , stopwords , re , sklearn
+  
+ **Process**
+ 1. Get the input
+ 2. tokenize the word into sentences
+ 3. lemmatize the sentences 
+ 4. Use Regular Expression to eliminate the symbols and numbers
+ 5. Using the **CountVectorizer** pass the processed data
+ 6. The final output will be an array like we have seen above.
+
+Check the implementation [Bag of Words NoteBook](https://github.com/AlbusDracoSam/NLP/blob/main/Bag_of_Words.ipynb)
+
+***
+
 
 
   
