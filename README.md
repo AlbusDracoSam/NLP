@@ -119,6 +119,42 @@ Check the implementation [Bag of Words NoteBook](https://github.com/AlbusDracoSa
 
 ***
 
+### TF - IDF
+
+TF - Term Frequency
+
+IDF - Inverse Term Frequency
+
+**TF**
+
+Refer the above example in Bag of Words.
+
+The main disadvantange of the BOW is that it won't give us which word is the vital word. It will give us simply an vector yet powerful.
+
+TF = No.of. frequency of the word / total no of words
+
+**IDF**
+
+IDF = log(No.of.sentences / No.of.Sentences contains the word)
+
+Final table will be an product of TF * IDF
+
+**Libraries used**
+
+  NLTK , stopwords , re , sklearn
+  
+ **Process**
+ 1. Get the input
+ 2. tokenize the word into sentences
+ 3. lemmatize the sentences 
+ 4. Use Regular Expression to eliminate the symbols and numbers
+ 5. Using the **TfidfVectorizer** pass the processed data
+ 6. The final output will be an array like we have seen above.
+ 
+ Check the implementation [TFIDF NoteBook](https://github.com/AlbusDracoSam/NLP/blob/main/TF_IDF.ipynb)
+
+
+
 
 
   
