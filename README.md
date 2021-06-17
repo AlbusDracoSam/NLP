@@ -123,7 +123,7 @@ Check the implementation [Bag of Words NoteBook](https://github.com/AlbusDracoSa
 
 TF - Term Frequency
 
-IDF - Inverse Term Frequency
+IDF - Inverse Document Frequency
 
 **TF**
 
@@ -152,6 +152,37 @@ Final table will be an product of TF * IDF
  6. The final output will be an array like we have seen above.
  
  Check the implementation [TFIDF NoteBook](https://github.com/AlbusDracoSam/NLP/blob/main/TF_IDF.ipynb)
+ 
+ ***
+ 
+ ### Word2Vec
+ 
+ The main problem with the BOW and TF-IDF is that they doesn't give us any semantic information. To overcome this we use Word2Vec.
+ 
+ In BOW and TF-IDF the words are represented in an array while in Word2Vec each word in the sentence is represented as a vector of 32 or more dimension. 
+ 
+ Using the dimensions it keeps the semantic information with the other words. Eg. Man and Woman will be near in terms of dimensions. 
+ 
+ In simpler words related words are stored as near as possible using the vector dimensions. 
+ 
+ It's a brief topic if you want to learn more please refer google.
+ 
+ **Libraries used**
+
+  NLTK , stopwords , re , sklearn, gensim
+ 
+ **Process**
+ 
+ 1. Cleaning the data
+ 2. Tokenizing 
+ 3. Building the model
+ 4. Comparing the vocabularies
+
+ Check the implementation [Word2Vec NoteBook](https://github.com/AlbusDracoSam/NLP/blob/main/Word2Vec.ipynb)
+ 
+ ***
+ 
+ 
 
 
 
