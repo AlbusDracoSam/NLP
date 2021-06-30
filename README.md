@@ -77,6 +77,9 @@ Bottom Top Approach Of Learning
   Check the implementation [Lemmatization note book](https://github.com/AlbusDracoSam/NLP/blob/main/Lemmatization.ipynb)
   
  ***
+ 
+  ## Text Processing Level - 2
+
 
 ### Bag of Words
 
@@ -157,6 +160,9 @@ Final table will be an product of TF * IDF
  Check the implementation [TFIDF NoteBook](https://github.com/AlbusDracoSam/NLP/blob/main/TF_IDF.ipynb)
  
  ***
+ 
+  ## Text Processing Level - 3
+
  
  ### Word2Vec
  
