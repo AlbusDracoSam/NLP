@@ -1,5 +1,8 @@
 # Natural Language Processing 
-  Bottom Top Approach Of Learning
+
+
+
+Bottom Top Approach Of Learning
   1. Text Preprocessing Level 1- Tokenization,Lemmatization,StopWords,POS
   2. Text Preprocessing Level 2- Bag Of  Words, TFIDF, Unigrams,Bigrams,n-grams
   3. Text Preprocessing- Gensim,Word2vec,AvgWord2vec
@@ -181,6 +184,99 @@ Final table will be an product of TF * IDF
  Check the implementation [Word2Vec NoteBook](https://github.com/AlbusDracoSam/NLP/blob/main/Word2Vec.ipynb)
  
  ***
+ 
+ ### Word Embedding
+ 
+ Word embeddings are a type of word representation that allows words with similar meaning to have a similar representation.
+ 
+ From the above statement there arises a question, What type of representaion?. Ofcourse the answer is Vector representation as we seen earlier. 
+ 
+ In word embedding each word is defined by an dimension of upto 300. Each dimension represents a category. It was pre-trained by **Google** with 3 billion words and 300 dimesions.
+ 
+ 
+   <img src = "/pictures/graph.png" width="400" height="400">
+   
+   This is how similar words are grouped together as much as possibe. With this understanding let's dive deeper.
+   
+   **One Hot Code**
+   
+   Like Bag of Words the words are represented in a Vector that's called One Hot Code. The size of the one hot depends on the **Vocabulary size**. We can define of our Vocabulary size. In the vocabulary the words are arranged in a ascending order. 
+   
+   Unlike in Bag of words we got a number representing the word in the dictionary. In the case of we got a Sparse matrix. Once we are done with this step we are good to go for Keras word embedding layer. 
+    
+      vocab_size = 1000
+      
+      onehot_representation = [one_hot(word, vocab_size) for word in sentence]
+      
+  #### Pad Sequencing
+  
+  All the neural networks require to have inputs that have the same shape and size. However, when we pre-process and use the texts as inputs for our model.
+  
+  In other words, naturally, some of the sentences are longer or shorter. We need to have the inputs with the same size, this is where the padding is necessary.
+  
+  Then we need to do padding, since every sentence in the text has not the same number of words, we can also define maximum number of words for each sentence, if a sentence     is longer then we can drop some words.
+  
+    
+    #import pad_sequences
+    from tensorflow.keras.preprocessing.sequence import pad_sequences
+    
+    sequences=tokenizer.texts_to_sequences(sentences)
+    padded=pad_sequences(sequences,padding="post",truncating=”post”,maxlen=8)
+    
+  **padding=”post”**
+  
+  Add the zeros at the end of the sequence to make the samples in the same size. The argument can be either **pre** or **post** depending on the argument it will add 0's at     the respective position.
+  
+  **maxlen=8** 
+  
+  this input defines the maximum number of words in your sentences, the default maximum length of sentences is defined by the longest sentence. When a sentence exceeds the     number of max words, then it will drop the words and by default setting, it will drop the words at the beginning of the sentence.
+  
+  **truncating=”post”**
+  
+  setting this truncating parameter as post means that when a sentence exceeds the number of maximum words drop the last words in the sentence instead of the default setting   which drops the words from the beginning of the sentence.
+ 
+   
+  #### Word Embedding Layer
+   
+   Keras offers an Embedding layer that can be used for neural networks on text data.
+
+  It requires that the input data be integer encoded, so that each word is represented by a unique integer. This data preparation step can be performed using the Tokenizer     API also provided with Keras.
+  
+  The Embedding layer is defined as the first hidden layer of a network. It must specify 3 arguments.
+  
+  It must specify 3 arguments:
+
+  **input_dim**
+  
+  This is the size of the vocabulary in the text data. For example, if your data is integer encoded to values between 0-10, then the size of the vocabulary would     be 11     words.
+  
+  **output_dim**
+  
+  This is the size of the vector space in which words will be embedded. It defines the size of the output vectors from this layer for each word. For example, it could be 32     or 100 or even larger. Test different values for your problem.
+  
+  **input_length**
+ 
+  This is the length of input sequences, as you would define for any input layer of a Keras model. For example, if all of your input documents are comprised of 1000 words,     this would be 1000.
+  
+    sent_len = 8
+    model = Sequential()
+    model.add(Embedding(vocab_size,10,input_length=sent_len))
+    
+ Once we are done we can predict the vector of the given sentence by
+ 
+    print(model.predict(your_doc))
+    
+ To read more about Word Embedding please refer [Jason Brownlee](https://machinelearningmastery.com/use-word-embedding-layers-deep-learning-keras/)   
+    
+ Chech the implementation [Word Embedding NoteBook](https://github.com/AlbusDracoSam/NLP/blob/main/Word_Embedding.ipynb)
+    
+  
+
+ 
+ 
+
+ 
+ 
  
  
 
